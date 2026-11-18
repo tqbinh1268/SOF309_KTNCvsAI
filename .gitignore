@@ -1,0 +1,47 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# macOS
+.DS_Store
+
+# TestNG & Reports
+test-output/
+screenshots/
+*.log
+
+# =======================================================
+# KÉT SẮT CÁ NHÂN CỦA GIẢNG VIÊN (TUYỆT ĐỐI KHÔNG PUSH GIT)
+# =======================================================
+.teacher/
+private/
+vault/
+teaching-notes/
+*.secret.md
+*.draft.md
+.env
+.env.*
