@@ -1,0 +1,9 @@
+TestID,Fullname,Username,Password,ConfirmPassword,Phone,ExpectedResult,ExpectedException,Description
+BE_REG_01,Trần Quang Bình,binhtq7,Pass@123,Pass@123,0901234567,SUCCESS,None,Đăng ký thành công với thông tin hợp lệ
+BE_REG_02,Nguyễn Văn A,nguyenvana,123,123,0912345678,FAILED,ValidationException,Mật khẩu dưới 6 ký tự
+BE_REG_03,Lê Thị B,lethib,Pass@123,Pass@999,0987654321,FAILED,ValidationException,Mật khẩu xác nhận không khớp
+BE_REG_04,Phạm Văn C,phamvanc,Pass@123,Pass@123,090123,FAILED,ValidationException,Số điện thoại không đủ 10 số
+BE_REG_05,Trần Quang Bình,binhtq7,Pass@123,Pass@123,0901234567,FAILED,DuplicateUserException,Trùng tên đăng nhập đã tồn tại
+BE_REG_06,,nguyend,Pass@123,Pass@123,0911223344,FAILED,ValidationException,Để trống họ và tên
+BE_REG_07,Nguyễn Văn E,,Pass@123,Pass@123,0911223344,FAILED,ValidationException,Để trống tên đăng nhập
+BE_REG_08,Nguyễn Văn F,nguyenf,,,0911223344,FAILED,ValidationException,Để trống mật khẩu

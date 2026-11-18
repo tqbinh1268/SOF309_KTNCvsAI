@@ -1,0 +1,7 @@
+TestID,Username,Password,ExpectedResult,ExpectedException,Description
+BE_LOG_01,binhtq7,Pass@123,SUCCESS,None,Đăng nhập thành công đúng tài khoản mật khẩu
+BE_LOG_02,binhtq7,WrongPassword,FAILED,BadCredentialsException,Sai mật khẩu
+BE_LOG_03,user_khong_ton_tai,Pass@123,FAILED,BadCredentialsException,Tài khoản không tồn tại trong hệ thống
+BE_LOG_04,,Pass@123,FAILED,ValidationException,Để trống tên đăng nhập
+BE_LOG_05,binhtq7,,FAILED,ValidationException,Để trống mật khẩu
+BE_LOG_06,admin' --,anything,FAILED,BadCredentialsException,Chặn tấn công SQL Injection bypass
