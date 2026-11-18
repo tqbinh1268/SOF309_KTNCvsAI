@@ -6,8 +6,9 @@ import java.util.List;
 
 /**
  * =========================================================================
- * DỊCH VỤ XÁC THỰC NGƯỜI DÙNG (AuthService) - BẢN DEV BÀN GIAO BAN ĐẦU
- * (Chưa có Unit Test, có bẫy lỗi logic để Tester phát hiện)
+ * DỊCH VỤ XÁC THỰC NGƯỜI DÙNG (AuthService) - BẢN ĐƠN GIẢN CHUẨN ASSIGNMENT
+ * Không dùng Interface, không dùng DAO, không dùng DTO rườm rà.
+ * Dữ liệu lưu trực tiếp trong List<User> (RAM).
  * 
  * Giảng viên: ThS. Trần Quang Bình (Thầy Mười Giáo - OMG)
  * =========================================================================
@@ -47,9 +48,9 @@ public class AuthService {
             throw new IllegalArgumentException("Mật khẩu xác nhận không khớp!");
         }
 
-        // 6. Kiểm tra số điện thoại (BẪY LỖI SƯ PHẠM: Dev chỉ check rỗng, quên kiểm tra regex 10 số đầu 0!)
-        if (phone == null || phone.trim().isEmpty()) {
-            throw new IllegalArgumentException("Vui lòng nhập số điện thoại!");
+        // 6. Kiểm tra số điện thoại (Chuẩn Việt Nam: 10 chữ số, bắt đầu bằng 0)
+        if (phone == null || !phone.matches("^0\\d{9}$")) {
+            throw new IllegalArgumentException("Số điện thoại không hợp lệ! (Phải đủ 10 số và bắt đầu bằng số 0)");
         }
 
         // 7. Kiểm tra trùng lặp tên đăng nhập
