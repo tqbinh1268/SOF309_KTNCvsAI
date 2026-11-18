@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+    TESTNG SUITE CẤU HÌNH DÀNH CHO GIAI ĐOẠN 2 (SELENIUM UI AUTOMATION)
+    Phục vụ yêu cầu Y4 & Y5 của Assignment SOF309.
+    Giảng viên: ThS. Trần Quang Bình (Thầy Mười Giáo - OMG)
+-->
+<suite name="SOF309 Poly Coffee Test Suite" verbose="1">
+
+    <!-- SUITE CON 1: KIỂM THỬ KHÓI (SMOKE TEST) -->
+    <test name="Smoke Tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.poly.coffee.services"/>
+        </packages>
+    </test>
+
+    <!-- SUITE CON 2: KIỂM THỬ HỒI QUY TOÀN BỘ (REGRESSION TEST) -->
+    <test name="All Unit Tests">
+        <classes>
+            <class name="com.poly.coffee.services.AuthServiceTest"/>
+            <class name="com.poly.coffee.services.ProductServiceTest"/>
+        </classes>
+    </test>
+
+</suite>
