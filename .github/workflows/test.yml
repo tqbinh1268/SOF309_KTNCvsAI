@@ -1,0 +1,51 @@
+name: CI Automation Test (SOF309 Poly Coffee)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  automation-test:
+    name: Run Unit & Selenium UI Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: 2. Set up Java 17 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: 3. Verify Chrome browser on Ubuntu runner
+        run: |
+          google-chrome --version
+          which google-chrome
+
+      - name: 4. Execute Smoke Test Suite
+        run: mvn test -Dtest=SmokeTestSuite
+
+      - name: 5. Execute Full Test Suite (Unit & Selenium POM)
+        run: mvn test
+
+      - name: 6. Upload Surefire Test Reports to Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-test-reports
+          path: target/surefire-reports/
+          retention-days: 7
+
+      - name: 7. Upload Screenshots Artifact (If any)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-test-screenshots
+          path: screenshots/
+          retention-days: 7

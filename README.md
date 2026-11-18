@@ -1,4 +1,5 @@
 # ☕ SOF309: KIỂM THỬ NÂNG CAO CÙNG AI
+[![CI Automation Test](https://github.com/tqbinh1268/SOF309_KTNCvsAI/actions/workflows/test.yml/badge.svg)](https://github.com/tqbinh1268/SOF309_KTNCvsAI/actions/workflows/test.yml)
 > **Mã nguồn Demo Kiểm thử Đơn giản & Chuẩn hóa Assignment cho Sinh viên FPT Polytechnic**  
 > Giảng viên hướng dẫn: **ThS. Trần Quang Bình (Thầy Mười Giáo — OMG · `binhtq7@fpt.edu.vn`)**  
 > Dự án: **Poly Coffee Management**
@@ -17,6 +18,7 @@ Hệ thống được thiết kế theo tiêu chí **Tối Giản - Trực Quan 
 * 🧪 **[Bảng Kịch bản Kiểm thử Chi tiết (TEST_CASES.md)](file:///Users/ongmuoigiao/Library/CloudStorage/GoogleDrive-ongmuoigiao@gmail.com/My%20Drive/M%C3%B4n%20H%E1%BB%8Dc/SOF309%20Ki%E1%BB%83m%20th%E1%BB%AD%20n%C3%A2ng%20cao%20c%C3%B9ng%20AI/Code%20Demo/SOF309_KTNCvsAI/docs/TEST_CASES.md)**: 22 kịch bản kiểm thử bao phủ toàn bộ Business Rules, áp dụng Phân vùng tương đương (EP) và Phân tích giá trị biên (BVA).
 * 🤖 **[Nhật ký Minh chứng Ứng dụng AI Giai đoạn 1 (01_ai_test_design.md)](file:///Users/ongmuoigiao/Library/CloudStorage/GoogleDrive-ongmuoigiao@gmail.com/My%20Drive/M%C3%B4n%20H%E1%BB%8Dc/SOF309%20Ki%E1%BB%83m%20th%E1%BB%AD%20n%C3%A2ng%20cao%20c%C3%B9ng%20AI/Code%20Demo/SOF309_KTNCvsAI/docs/ai-logs/01_ai_test_design.md)**: Minh chứng 4 phần (RAG Context, Prompt, AI Output, Human Refinement) cho yêu cầu Y6.
 * 🤖 **[Nhật ký Minh chứng Ứng dụng AI Giai đoạn 2 (02_ai_selenium_pom.md)](file:///Users/ongmuoigiao/Library/CloudStorage/GoogleDrive-ongmuoigiao@gmail.com/My%20Drive/M%C3%B4n%20H%E1%BB%8Dc/SOF309%20Ki%E1%BB%83m%20th%E1%BB%AD%20n%C3%A2ng%20cao%20c%C3%B9ng%20AI/Code%20Demo/SOF309_KTNCvsAI/docs/ai-logs/02_ai_selenium_pom.md)**: Minh chứng thiết kế lớp Page Object Model (POM) và Test Script bằng AI (Yêu cầu Y6).
+* 🤖 **[Nhật ký Minh chứng Ứng dụng AI Giai đoạn 4 (04_ai_github_actions.md)](file:///Users/ongmuoigiao/Library/CloudStorage/GoogleDrive-ongmuoigiao@gmail.com/My%20Drive/M%C3%B4n%20H%E1%BB%8Dc/SOF309%20Ki%E1%BB%83m%20th%E1%BB%AD%20n%C3%A2ng%20cao%20c%C3%B9ng%20AI/Code%20Demo/SOF309_KTNCvsAI/docs/ai-logs/04_ai_github_actions.md)**: Minh chứng thiết lập CI/CD GitHub Actions tự động hóa kiểm thử bằng AI (Yêu cầu Y5 & Y6).
 
 ---
 
