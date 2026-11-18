@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poly Coffee - Đăng Ký</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: white; padding: 32px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); width: 100%; max-width: 440px; box-sizing: border-box; }
+        h2 { margin-top: 0; color: #1e293b; text-align: center; }
+        .form-group { margin-bottom: 14px; }
+        label { display: block; margin-bottom: 5px; font-weight: 500; color: #475569; font-size: 14px; }
+        input { width: 100%; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        button { width: 100%; padding: 12px; background-color: #ea580c; color: white; border: none; border-radius: 6px; font-weight: 600; font-size: 16px; cursor: pointer; }
+        .alert { padding: 12px; border-radius: 6px; margin-bottom: 14px; font-size: 14px; display: none; }
+        .alert-danger { background-color: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
+        .alert-success { background-color: #dcfce7; color: #166534; border: 1px solid #4ade80; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>☕ Tạo Tài Khoản Mới</h2>
+        <div id="error-message" class="alert alert-danger"></div>
+        <div id="success-message" class="alert alert-success"></div>
+
+        <form id="register-form" onsubmit="handleRegister(event)">
+            <div class="form-group">
+                <label for="fullname">Họ và tên</label>
+                <input type="text" id="fullname" placeholder="Trần Quang Bình">
+            </div>
+            <div class="form-group">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" placeholder="binhtq7">
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" placeholder="Tối thiểu 6 ký tự">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Xác nhận mật khẩu</label>
+                <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu">
+            </div>
+            <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input type="text" id="phone" placeholder="0901234567">
+            </div>
+            <button type="submit" id="btn-register">Đăng Ký</button>
+        </form>
+    </div>
+
+    <script>
+        function handleRegister(e) {
+            e.preventDefault();
+            const fullname = document.getElementById('fullname').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const phone = document.getElementById('phone').value.trim();
+
+            const errBox = document.getElementById('error-message');
+            const successBox = document.getElementById('success-message');
+            errBox.style.display = 'none';
+            successBox.style.display = 'none';
+
+            if (!fullname) {
+                errBox.innerText = 'Vui lòng nhập họ và tên!';
+                errBox.style.display = 'block';
+                return;
+            }
+            if (!username) {
+                errBox.innerText = 'Vui lòng nhập tên đăng nhập!';
+                errBox.style.display = 'block';
+                return;
+            }
+            if (!password || password.length < 6) {
+                errBox.innerText = 'Mật khẩu phải từ 6 ký tự trở lên!';
+                errBox.style.display = 'block';
+                return;
+            }
+            if (password !== confirmPassword) {
+                errBox.innerText = 'Mật khẩu xác nhận không khớp!';
+                errBox.style.display = 'block';
+                return;
+            }
+            if (!phone.match(/^0\d{9}$/)) {
+                errBox.innerText = 'Số điện thoại không hợp lệ! (Phải đủ 10 số và bắt đầu bằng số 0)';
+                errBox.style.display = 'block';
+                return;
+            }
+
+            successBox.innerText = 'Đăng ký tài khoản thành công!';
+            successBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

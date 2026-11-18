@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poly Coffee - Đăng Nhập</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: white; padding: 32px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px; box-sizing: border-box; }
+        h2 { margin-top: 0; color: #1e293b; text-align: center; }
+        .form-group { margin-bottom: 16px; }
+        label { display: block; margin-bottom: 6px; font-weight: 500; color: #475569; }
+        input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        input:focus { outline: none; border-color: #f97316; ring: 2px solid #fdba74; }
+        button { width: 100%; padding: 12px; background-color: #ea580c; color: white; border: none; border-radius: 6px; font-weight: 600; font-size: 16px; cursor: pointer; transition: background-color 0.2s; }
+        button:hover { background-color: #c2410c; }
+        .alert { padding: 12px; border-radius: 6px; margin-bottom: 16px; font-size: 14px; display: none; }
+        .alert-danger { background-color: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
+        .alert-success { background-color: #dcfce7; color: #166534; border: 1px solid #4ade80; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>☕ Poly Coffee Login</h2>
+        <div id="error-message" class="alert alert-danger"></div>
+        <div id="success-message" class="alert alert-success"></div>
+
+        <form id="login-form" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" name="username" placeholder="Nhập username...">
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu...">
+            </div>
+            <button type="submit" id="btn-login">Đăng Nhập</button>
+        </form>
+    </div>
+
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const errBox = document.getElementById('error-message');
+            const successBox = document.getElementById('success-message');
+
+            errBox.style.display = 'none';
+            successBox.style.display = 'none';
+
+            if (!username) {
+                errBox.innerText = 'Vui lòng nhập tên đăng nhập!';
+                errBox.style.display = 'block';
+                return;
+            }
+            if (!password) {
+                errBox.innerText = 'Vui lòng nhập mật khẩu!';
+                errBox.style.display = 'block';
+                return;
+            }
+
+            // Mock tài khoản hợp lệ
+            if (username.toLowerCase() === 'binhtq7' && password === 'Pass@123') {
+                successBox.innerText = 'Đăng nhập thành công!';
+                successBox.style.display = 'block';
+                setTimeout(() => {
+                    window.location.href = 'products.html';
+                }, 500);
+            } else {
+                errBox.innerText = 'Tài khoản hoặc mật khẩu không chính xác!';
+                errBox.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -16,6 +16,7 @@ Hệ thống được thiết kế theo tiêu chí **Tối Giản - Trực Quan 
 * 📑 **[Kế hoạch Kiểm thử Tự động (TEST_PLAN.md)](file:///Users/ongmuoigiao/Library/CloudStorage/GoogleDrive-ongmuoigiao@gmail.com/My%20Drive/M%C3%B4n%20H%E1%BB%8Dc/SOF309%20Ki%E1%BB%83m%20th%E1%BB%AD%20n%C3%A2ng%20cao%20c%C3%B9ng%20AI/Code%20Demo/SOF309_KTNCvsAI/docs/TEST_PLAN.md)**: Kế hoạch kiểm thử ngắn gọn xác định mục tiêu, phạm vi in-scope/out-of-scope và công cụ kiểm thử.
 * 🧪 **[Bảng Kịch bản Kiểm thử Chi tiết (TEST_CASES.md)](file:///Users/ongmuoigiao/Library/CloudStorage/GoogleDrive-ongmuoigiao@gmail.com/My%20Drive/M%C3%B4n%20H%E1%BB%8Dc/SOF309%20Ki%E1%BB%83m%20th%E1%BB%AD%20n%C3%A2ng%20cao%20c%C3%B9ng%20AI/Code%20Demo/SOF309_KTNCvsAI/docs/TEST_CASES.md)**: 22 kịch bản kiểm thử bao phủ toàn bộ Business Rules, áp dụng Phân vùng tương đương (EP) và Phân tích giá trị biên (BVA).
 * 🤖 **[Nhật ký Minh chứng Ứng dụng AI Giai đoạn 1 (01_ai_test_design.md)](file:///Users/ongmuoigiao/Library/CloudStorage/GoogleDrive-ongmuoigiao@gmail.com/My%20Drive/M%C3%B4n%20H%E1%BB%8Dc/SOF309%20Ki%E1%BB%83m%20th%E1%BB%AD%20n%C3%A2ng%20cao%20c%C3%B9ng%20AI/Code%20Demo/SOF309_KTNCvsAI/docs/ai-logs/01_ai_test_design.md)**: Minh chứng 4 phần (RAG Context, Prompt, AI Output, Human Refinement) cho yêu cầu Y6.
+* 🤖 **[Nhật ký Minh chứng Ứng dụng AI Giai đoạn 2 (02_ai_selenium_pom.md)](file:///Users/ongmuoigiao/Library/CloudStorage/GoogleDrive-ongmuoigiao@gmail.com/My%20Drive/M%C3%B4n%20H%E1%BB%8Dc/SOF309%20Ki%E1%BB%83m%20th%E1%BB%AD%20n%C3%A2ng%20cao%20c%C3%B9ng%20AI/Code%20Demo/SOF309_KTNCvsAI/docs/ai-logs/02_ai_selenium_pom.md)**: Minh chứng thiết kế lớp Page Object Model (POM) và Test Script bằng AI (Yêu cầu Y6).
 
 ---
 
@@ -25,9 +26,12 @@ Giảng viên và sinh viên có thể quay ngược thời gian repository về
 | Mốc Demo | Lệnh Checkout | Mô tả Trạng thái Code |
 | :--- | :--- | :--- |
 | **Giai đoạn 0: Đặc tả** | `git checkout v0.1-spec-init` | Chỉ có hồ sơ SRS, tài liệu kiến trúc, chưa có code. |
+| **Giai đoạn 0.2: RAG Test**| `git checkout v0.2-test-design-y2` | Bổ sung Test Plan, Test Cases và AI Log 1. |
 | **Giai đoạn 1: Dev Auth** | `git checkout v1.1-auth-dev` | Dev vừa viết xong `AuthService.java`, chưa có unit test. |
-| **Giai đoạn 2: Red Test** | `git checkout v1.2-auth-test-red` | Tester viết `AuthServiceTest.java` ➔ Chạy test bị **FAIL** để minh họa việc Tester bắt bug của Dev. |
-| **Giai đoạn 3: Green Test**| `git checkout v1.3-auth-test-green`| Dev fix sạch bug, chạy `mvn test` **Pass 22/22 (100%)**. |
+| **Giai đoạn 2: Red Test** | `git checkout v1.2-auth-test-red` | Tester viết `AuthServiceTest.java` ➔ Chạy test bị **FAIL** để minh họa Tester bắt bug. |
+| **Giai đoạn 3: Green Test**| `git checkout v1.3-auth-test-green`| Dev fix sạch bug, chạy `mvn test` **Pass 16/16**. |
+| **Giai đoạn 4: Product CRUD**| `git checkout v2.2-product-test-green`| Hoàn thành CRUD Sản phẩm, chạy `mvn test` **Pass 22/22**. |
+| **Giai đoạn 5: Selenium POM**| `git checkout v3.0-selenium-pom-pass`| Hoàn thành Automation Test Web UI (POM), chạy `mvn test` **Pass 28/28**. |
 | **Mới nhất (Latest)** | `git checkout main` | Nhánh chính chứa toàn bộ mã nguồn cập nhật mới nhất. |
 
 ```
@@ -72,11 +76,19 @@ src/
 * `CRUD05`: Xóa sản phẩm theo ID (Delete).
 * `CRUD06`: Lấy danh sách toàn bộ sản phẩm (Read).
 
+### 3. Module Kiểm Thử Giao Diện Web (`LoginUiTest.java`, `ProductUiTest.java`) - 6 Test Cases (Selenium POM)
+* `UI_LOG_01`: Đăng nhập thành công với tài khoản hợp lệ.
+* `UI_LOG_02`: Báo lỗi khi nhập sai mật khẩu trên form web.
+* `UI_LOG_03`: Báo lỗi khi để trống tên đăng nhập.
+* `UI_PROD_01`: Thêm mới sản phẩm thành công trên bảng Web và cập nhật số hàng.
+* `UI_PROD_02`: Báo lỗi khi để trống tên sản phẩm trên form.
+* `UI_PROD_03`: Báo lỗi khi giá sản phẩm <= 0 trên form web.
+
 ---
 
 ## 💻 HƯỚNG DẪN CHẠY TEST
-Chạy toàn bộ 22 test cases trên Terminal:
+Chạy toàn bộ 28 test cases (22 Unit Tests + 6 Selenium UI Tests) trên Terminal:
 ```bash
 mvn test
 ```
-* **Kết quả:** `Tests run: 22, Failures: 0, Errors: 0, Skipped: 0` -> **BUILD SUCCESS (100% Passed)**!
+* **Kết quả:** `Tests run: 28, Failures: 0, Errors: 0, Skipped: 0` -> **BUILD SUCCESS (100% Passed)**!
